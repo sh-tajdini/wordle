@@ -13,3 +13,9 @@ export interface GameStoreType {
       guess: string;
     };
   }
+  export interface GuessResponse {
+    data: {
+      isValidWord: boolean;
+      score: number[];
+    };
+  }

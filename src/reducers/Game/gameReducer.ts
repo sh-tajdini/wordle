@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { GameStoreType } from '../../schema/Game';
 
 // reducer slices
 import startGame from './startGame';
@@ -7,6 +6,7 @@ import validateGuess from './validateGuess';
 import endGame from './endGame';
 import updateScore from './updateScore';
 import makeGuess from './makeGuess';
+import { GameStoreType } from '../../schema/Game';
 
 const initialState:GameStoreType = {
   gameStarted: false,
