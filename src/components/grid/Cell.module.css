@@ -1,0 +1,31 @@
+.cell{
+    border: 2px solid #3a3a3c;
+    font-size: 1em;
+    font-family: "nyt-franklin";
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: bold;
+    vertical-align: middle;
+    box-sizing: border-box;
+    color: #f8f8f8;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+.wrongLetter{
+    background-color: #3a3a3c;
+    color: #fff;
+}
+.correctLetter{
+    background-color: #538d4e;
+    color: #fff;
+}
+.presentLetter{
+    background-color: #b59f3b;
+    color: #fff;
+}
