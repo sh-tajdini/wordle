@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { GameActionType, GameStoreType } from "../../schema/Game";
+import { GameActionType, GameStoreType } from "../../schema/game";
 
 
   const makeGuess = {
-    doMakeGuess: (state:GameStoreType, action:GameActionType) => {
+    doMakeGuess: (state:GameStoreType, _action:GameActionType) => {
       state.requestPending = true;
         return state;
       },

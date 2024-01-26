@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 import { doMakeGuess, successfulMakeGuess } from '../reducers/Game/gameReducer';
-import { GameActionType, GuessResponse } from '../schema/Game';
+import { GameActionType, GuessResponse } from '../schema/game';
 
 function* onMakeGuess(action: GameActionType):Generator {
     const url = 'https://wordle-apis.vercel.app/api/validate';
