@@ -11,8 +11,6 @@ import { GameActionType, GameStoreType } from "../../schema/Game";
       successfulMakeGuess: (state:GameStoreType, action:GameActionType) => {
         if(action.payload.isValid)
         state.guessInfo = [...state.guessInfo, action.payload]; 
-         else
-        // show error message
         state.requestPending = false;
         return state;
         },

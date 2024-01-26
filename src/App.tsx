@@ -1,3 +1,4 @@
+import {message} from 'antd';
 import React, { useEffect, useState } from 'react';
 import { Grid } from './components/grid/Grid';
 import './App.css';
@@ -24,6 +25,13 @@ const App = () => {
         setGuesses((prevGuesses) => [...prevGuesses, currentGuess.join('') as string]);
         setCurrentGuess([]);
         }
+        else{
+          message.error('Not in word list');
+        }
+      return;
+    }
+    if (event.key === 'Enter' && currentGuess.length < 5) {
+      message.error('not enough letter');
       return;
     }
     // clean the cells by pressing backspace
