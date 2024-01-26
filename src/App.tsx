@@ -15,7 +15,7 @@ const App = () => {
  useEffect(() => {
     if(currentGuess.length === 5)
     dispatch(doMakeGuess({ guess: currentGuess.join('') }));
-  }, [currentGuess]);
+  }, [currentGuess, dispatch]);
 
   const handleKeyDown= (event: React.KeyboardEvent) => {
 
@@ -52,8 +52,8 @@ const App = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('keydown', handleKeyDown as unknown as (event: KeyboardEvent) => void);
+    return () => window.removeEventListener('keydown', handleKeyDown as unknown as (event: KeyboardEvent) => void);
   }, [currentGuess,guessInfo]);
 
   return (
