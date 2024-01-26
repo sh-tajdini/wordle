@@ -1,21 +1,24 @@
 export interface GameStoreType {
-    gameStarted: boolean;
-    guesses: string[],
-    isValid: boolean,
-    score: number[],
+    requestPending: boolean;
+    guessInfo: GuessInfoType[];
   }
-
+export interface GuessInfoType {
+  guess: string,
+  isValid?: boolean,
+  score?: number[],
+}
   export interface GameActionType {
     type: string;
     payload: {
-      isValid: boolean;
-      score: number[];
+      isValid?: boolean;
+      score?: number[];
       guess: string;
     };
   }
   export interface GuessResponse {
     data: {
-      isValidWord: boolean;
+      is_valid_word: boolean;
       score: number[];
     };
   }
+  

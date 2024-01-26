@@ -1,38 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 // reducer slices
-import startGame from './startGame';
-import validateGuess from './validateGuess';
-import endGame from './endGame';
-import updateScore from './updateScore';
+// import startGame from './startGame';
+// import endGame from './endGame';
 import makeGuess from './makeGuess';
 import { GameStoreType } from '../../schema/Game';
 
 const initialState:GameStoreType = {
-  gameStarted: false,
-  guesses: [],
-  isValid: false,
-  score: [],
+  requestPending: false,
+  guessInfo: [],
 };
 
 export const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
-    ...startGame,
-    ...validateGuess,
-    ...endGame,
-    ...updateScore,
     ...makeGuess,
 
   },
 });
 const { actions, reducer } = gameSlice;
-export const { doStartGame } = actions;
-export const { doEndGame } = actions;
-export const { doUpdateScore } = actions;
-export const { doValidateGuess } = actions;
-export const { doMakeGuess } = actions;
+export const { doMakeGuess, successfulMakeGuess } = actions;
 
 export default reducer;
 
