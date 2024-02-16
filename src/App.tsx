@@ -1,4 +1,4 @@
-import {message} from 'antd';
+import {Button, message} from 'antd';
 import React, { useEffect, useState } from 'react';
 import { Grid } from './components/grid/Grid';
 import './App.css';
@@ -11,12 +11,18 @@ const App = () => {
   const [guesses, setGuesses] = useState<string[]>([]);
   const { guessInfo } = useAppSelector((state) => state.game);
   const dispatch = useDispatch();
+  const [NoOfGuesses,setGameStatus] = useState(4);
 
  useEffect(() => {
     if(currentGuess.length === 5)
     dispatch(doMakeGuess({ guess: currentGuess.join('') }));
   }, [currentGuess, dispatch]);
 
+  const handleGameStatus = () => {
+    setGameStatus((preNoOfGuesses) => preNoOfGuesses ===4 ? 6 : 4);
+  }
+
+  
   const handleKeyDown= (event: React.KeyboardEvent) => {
 
       if (event.key === 'Enter' && currentGuess.length === 5) {
@@ -63,7 +69,10 @@ const App = () => {
  </div>
       <div className="board-container">
         <div className="board">
-          <Grid guesses={guesses} currentGuess={currentGuess} />
+          <Button onClick ={handleGameStatus}>
+          {NoOfGuesses ===4 ? 'Easy' : 'Hard'}
+          </Button>
+          <Grid guesses={guesses} currentGuess={currentGuess} NoOfGuesses={NoOfGuesses}/>
         </div>
       </div>
 
